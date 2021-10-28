@@ -10,7 +10,7 @@ class DependentServicesRepository
 {
     protected $router;
 
-    public function __construct(array $header = [])
+    public function __construct()
     {
         $this->router = 'https://5f71da6964a3720016e60ff8.mockapi.io/v1';
     }
