@@ -62,4 +62,3 @@ jobs:
           script: |
             ls -la
             echo $USER_PASS | sudo -S docker ps
-            echo php artisan migrate
