@@ -3,7 +3,6 @@ namespace App\Repositories;
 
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Cache;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class PhysiciansRepository
 {
