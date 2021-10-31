@@ -41,20 +41,6 @@ class PrescriptionTest extends TestCase
     /**
      * @test
      */
-    public function test_send_prescription_with_error_patient_not_found()
-    {
-        $response = $this->post('/api/prescriptions', [
-            "text" => "Dipirona 1x ao dia",
-            "physician" => "9",
-            "patient" =>"409"
-        ], [ 'Accept' => 'application/json']);
-
-        $response->assertStatus(409);
-    }
-
-    /**
-     * @test
-     */
     public function test_send_prescription_with_error_patient_not_send()
     {
         $response = $this->post('/api/prescriptions', [
