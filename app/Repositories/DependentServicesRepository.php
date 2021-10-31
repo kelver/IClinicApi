@@ -25,6 +25,7 @@ class DependentServicesRepository
                     ->get(
                         "{$this->router}/{$resource}/{$identify}"
                     );
+
         return $data;
     }
 
@@ -34,10 +35,13 @@ class DependentServicesRepository
     public function sendEntity(string $resource, string $bearer, $retry, $timeout, array $request = []): Response
     {
         $data = Http::withToken($bearer)
+                    ->withHeaders([
+                        "Accept" => "application/json"
+                    ])
                     ->retry($retry)
                     ->timeout($timeout)
                     ->post(
-                        "{$this->router}/{$resource}}",
+                        "{$this->router}/{$resource}",
                         $request
                     );
         return $data;

@@ -12,7 +12,11 @@ class Prescriptions extends Model
     protected $table = 'prescriptions';
 
     public $fillable = [
-
+        'uuid',
+        'clinic',
+        'physician',
+        'patient',
+        'text'
     ];
 
     public $timestamps = true;

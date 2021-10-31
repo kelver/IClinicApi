@@ -2,6 +2,8 @@
 namespace App\Repositories;
 
 use App\Models\Prescriptions;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class PrescriptionRepository
 {
@@ -9,6 +11,7 @@ class PrescriptionRepository
     protected $clinic;
     protected $physician;
     protected $patient;
+    protected $metric;
 
     public function __construct(Prescriptions $prescriptionsModel)
     {
@@ -16,40 +19,51 @@ class PrescriptionRepository
         $this->clinic = new ClinicsRepository();
         $this->physician = new PhysiciansRepository();
         $this->patient = new PatientsRepository();
+        $this->metric = new MetricsRepository();
     }
 
     public function storePrescription(array $request)
     {
-        $clinic = $this->clinic->getClinic($request['clinic']);
-        $physician = $this->physician->getPhysician($request['physician']);
-        $patient = $this->patient->getPatient($request['patient']);
+        $clinic = ['id' => null, 'name' => null];
+        try{
+            if(array_key_exists('clinic', $request)) {
+                $clinic = $this->clinic->getClinic($request['clinic']);
+            }
+            $patient = $this->isValidData($this->patient->getPatient($request['patient']));
+            $physician = $this->isValidData($this->physician->getPhysician($request['physician']));
 
-        $data = $this->sendMetric($clinic, $physician, $patient);
+
+            return $this->persistPrescription($clinic, $physician, $patient, $request);
+        } catch (\Exception $e) {
+            throw new HttpException(500, $e->getMessage());
+        }
+    }
+
+    public function persistPrescription($clinic, $physician, $patient, $request)
+    {
+        DB::beginTransaction();
+
+        $prescription = $this->entity->create([
+            'clinic'        => $clinic['id'],
+            'physician'     => $physician['id'],
+            'patient'       => $patient['id'],
+            'text'          => $request['text'],
+        ]);
+        $metric = $this->isValidData($this->metric->sendMetric($clinic, $physician, $patient, $prescription));
+        if(!$metric){
+            DB::rollBack();
+        }
+
+        DB::commit();
+        return $prescription;
+    }
+
+    public function isValidData($data)
+    {
+        if(!is_array($data) && $data->getStatusCode() == 401){
+            throw new HttpException(500, $data->getContent());
+        }
         return $data;
     }
 
-    public function sendMetric($clinic, $physician, $patient)
-    {
-        dd($clinic, $physician, $patient);
-        $metricData = new DependentServicesRepository();
-
-        return $metricData
-            ->sendEntity(
-                'metrics',
-                'SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
-                5,
-                6,
-                [
-                    "clinic_id" => $clinic['id'],
-                    "clinic_name" => $clinic['name'],
-                    "physician_id" => $physician['id'],
-                    "physician_name" => $physician['name'],
-                    "physician_crm" => $physician['crm'],
-                    "patient_id" => $patient['id'],
-                    "patient_name" => $patient['name'],
-                    "patient_email" => $patient['email'],
-                    "patient_phone" => $patient['phone'],
-                    "prescription_id" => 1
-                ])->json();
-    }
 }

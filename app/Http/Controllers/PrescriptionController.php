@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\PrescriptionRepository;
+use App\Http\Requests\StorePrescriptionRequest;
+use App\Http\Resources\PrescriptionsResource;
 use App\Services\PrescriptionService;
-use Illuminate\Http\Request;
 
 class PrescriptionController extends Controller
 {
@@ -18,11 +18,13 @@ class PrescriptionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \App\Http\Requests\StorePrescriptionRequest  $request
+     * @return PrescriptionsResource
      */
-    public function store(Request $request)
+    public function store(StorePrescriptionRequest $request): PrescriptionsResource
     {
-        return $this->service->storePrescription($request->all());
+        $prescriptions = $this->service->storePrescription($request->validated());
+
+        return new PrescriptionsResource($prescriptions);
     }
 }
