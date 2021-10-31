@@ -16,7 +16,7 @@ class CreatePrescriptionsTable extends Migration
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
-            $table->integer('clinic');
+            $table->integer('clinic')->nullable();
             $table->integer('physician');
             $table->integer('patient');
             $table->text('text');
