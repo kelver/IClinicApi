@@ -61,7 +61,7 @@ class PrescriptionRepository
     public function isValidData($data)
     {
         if(!is_array($data) && $data->getStatusCode() == 401){
-            throw new HttpException(500, $data->getContent());
+            throw new HttpException(409, $data->getContent());
         }
         return $data;
     }

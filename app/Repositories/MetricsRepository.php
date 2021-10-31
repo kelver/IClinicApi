@@ -41,7 +41,7 @@ class MetricsRepository
                         'message' => 'Physician not found.',
                         'code' => '02'
                     ]
-                ], 401);
+                ], 409);
             }
 
             return $data->json();
@@ -51,7 +51,7 @@ class MetricsRepository
                     'message' => 'Metrics service not available.',
                     'code' => '04'
                 ]
-            ], 401));
+            ], 409));
         }
     }
 }

@@ -42,6 +42,6 @@ class StorePrescriptionRequest extends FormRequest
         throw new HttpResponseException(response()->json([
             'message' => 'Malformed request.',
             'code' => '01'
-        ], 401));
+        ], 400));
     }
 }

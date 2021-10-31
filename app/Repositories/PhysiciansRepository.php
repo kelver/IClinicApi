@@ -25,7 +25,7 @@ class PhysiciansRepository
                             'message' => 'Physician not found.',
                             'code' => '02'
                         ]
-                    ], 401);
+                    ], 409);
                 }
                 return $data->json();
             });
@@ -35,7 +35,7 @@ class PhysiciansRepository
                     'message' => 'Physicians service not available.',
                     'code' => '05'
                 ]
-            ], 401));
+            ], 409));
         }
     }
 }

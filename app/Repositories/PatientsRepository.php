@@ -26,7 +26,7 @@ class PatientsRepository
                             'message' => 'Patients not found.',
                             'code' => '03'
                         ]
-                    ], 401));
+                    ], 409));
                 }
                 return $data->json();
             });
@@ -36,7 +36,7 @@ class PatientsRepository
                     'message' => 'Patients service not available.',
                     'code' => '06'
                 ]
-            ], 401));
+            ], 409));
         }
     }
 }
