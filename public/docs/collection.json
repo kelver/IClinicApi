@@ -1,0 +1,60 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "localhost"
+        }
+    ],
+    "info": {
+        "name": "IClinicApi",
+        "_postman_id": "bac6fb35-2a33-4f1c-be46-d7fc0573728f",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Store a new prescription.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/prescriptions",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/prescriptions"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"clinic\":16,\"physician\":1,\"patient\":15,\"text\":\"disuqfscadxclggrfrfbrhmpezekdheollgiqpbgysipkaelmtmupdurvqvcdyjrwozyhjikddfdztatogzunpqhwucbsfhsrhkecqxllwmdtdqtwatfunpkpliejfwmmiaxtxqjrqzlpsiuiotbsqohitdmqlwglmzvikvyzqiewsaqrvojguqoayfjxsvyriijwakigfooojynytqzekihcvzuefphwpqchkrfvfzhczuuofbqndrmygglyehmrydttlmpdprtyqquveexmypmwomjkywqrjggsmnozoyoqriuhntasvzjqwjoitkmrcshcjembrcwomuipdlgmaeuvoioeluqiglwjfvkfmsteahvdgzlqyhxhzdhmyuwqdflfyrqrifuyzqfchbcwhzhrevziobklkyouuezzccpxwlzfthcoicakfgbichlfnjkhdtenspbtayuoizftmxaqsxdednbhhoxtxkxxcdwadumkfihrrouhkprjyansvaouqrcrlbxgbgvtposxizaopjmxlepcbwddlpgqchtexqmitjrvnolhaupdpurrsyyvvwzycxgqbbrabtwmyqcabjyhfwutocbyttqhhpkhlgjhpklmawcqqgiiwyrzgatflzqiwtjzqamseznrfrwchswszugldegaccrnggcgudckxwlnnmkavreyhivogzqvsavpaaggxoaomujgjtckirejdymygrnacryccujbozflweggdxkvzliwilgwcvvhcfxpavimpxfewegexrcbldhxkjggwbdooawwkkmzfwafuftczykbnauxkluyoivrtnljiukgrmgkpbhleotephnnwafaxnrmmfwniraafeoexyhpqaszvyctjjnfwlggxzpqotmpxaoqqsccbxyjemlfwkpatqkuxguibhurudscbizxfhnbzyhpkcadtjbbhtbvbisewdzzaklaxeeamdiactsnkowscgrkmtjbjcaipdunwylqdwsnsbfkxfdwdfqlhxdjenzuzaqdydcehukibxnvbfxvzokvzxnijskmzkddfccdumshcsoozawtgprjiyrtlzqtjlvgwqoshvxsbwwkoobmmdwimfpdwpopfprxarekucvppoqxmccixuksxpcaklrobzneolxdubqylcrhiflnmbzapkqgeuzzuomlrxsvzvciumggwwsxbttpwxzblyzlzbllpprrgjbtxhgwsigvmfravgustvhtldanysrnpdaoncwsxyrfmfolxmwiqzsveceegeiuewznprcrywuvzeucdhmfikhovdlasuuwmrhipfchtptvntfhpudgcffycjtyxxzpobqzwexzlaklgazwullddqevxfpwfzwpsmpikefesxbszofndakmefwhjhzwvjwcejyxipubulskcyhgrlawwxzxvajmqfsvbqntwajxbtcylszwzitmfksynycogwptbylmuaivthlldnkywqmhzxivevzvnpvbuuptqzhxycqlhymkovtsfeurhxbharypvpdhxaaidpggymmcllddpowqtbxynsddtqzcpwjleflnyykisbrmtwybhdnjhykwnouetaoltoduvnjwnigppffwlaofbthsgrmylzbwigohcvurvaixnextdszdrvmshzfwywtormdbibwvfcynkdxbvsvucvjpmzrlflgkjuibvocgitbcfdpsivdmavxhppxaoinpvxiyfghzfdosrcrtzeslclgkwbvzrfjevgvlkffbukxygrxmxrlqrvnadwcmghhfcsylpfcudsgpahahhjtmmhnqubuiqdnyqotooefiqgohrldjttbuxczyksjyvxnngcvsvexvkbfhixuavsepccnvwczzspirsvznqcdchrtyxdonzulqxcomxderbpuokirfrjxdkizepjtmusgqtvslbdvvfitusmuxyqyhcklwkprrgzzeiwrrloomxwwzdlbiimmqthunxgosgoeftugxzvpouspelrgjjmetcukrobowrsxlnbexhjijwqotrtygpvcenyivfarycnyldkqukaytzxpxpxvbfbmxknnputyrqqilfdeqfmkykfsbybqxfvpqsgvriaaducamyyuadcgegkgrfvztngvoizfkvkwqpymqpnbadlavipbffseavyaglloocddoicbvgcwanggvvsaxoqzcgokztagfyupmizepmkjzixfifugawkfmjplwoidwgxnhxoxrpaflyeufqsqqwxdysxybbgxetzsrnlxjcdbyxvnrflwwsvhrplqizmodwyhxmdderleluuwmkrcicbfpkeoxqumgpogkmxqagtupxhdmtxbaxxhhgjdowuhinrfaahtaxglwjilxfpvgndtrxcytoqoyjgmlhppkjlnjunkevheslvtxpnqtvolcttjmfdduwcxjasgqaunglvndotyrqvraysfqrcpblbzduhybwrbgjhtusuavgeygwmlxhnpqttgdrrsccmhjjgkwgiwqgyjlnfmlmqyvjjuvyhswytrbkasxzxgkcydfypomqtuzqyrcozircimfeplgcvwpwjqewukwbvmxmtfxaqrixyyajxavlovonpyuguzwphmvydoqqisibezhqlosqbalgrwrdwwrbcttojlaggraurnheglhwnovvthgjqklajmatytrvkkutvssjxwbtgqbwsuiojieszkprdnfukqoizxqxmintbcoujzluocgjsmxpmbxytiykpiobpdrtejrqbxbhppbvmnorkvbpusitjshiwfwalvzvlrzebqvkfvvyxniwpcwxkeidlvmgxwmvhtmgesxfzavbukihowjskxkgewrckrpxhuqyxareebmedrwhusoviuobhtgxmrqhmbqfgxvntbchxqnsdajqtfmmeqvtbmelkqzblubwwatgbrqqeewtmerhslpifbqqkbtwdmftbkooutmrjgvhsrgpehudogylbpugupsgajidtqcyorrlmfkhqzsmmefpsmrhrjvbvxiuerqxkxnhpcklpmrousxwpzgxumwanciovxjodeiecqcgijwtbfszmpxhluwdulhtxvpefftrpnklrltfddluxjfunqxsavunbhzipaihqodnopuczlgrkvevtpvvmymuuvatrhomzydtkomslhzumtgjfaooyuzpzvvnoitxjbgicaivfxtcuydklueqytnpienluueljvvokjupsvhratxttkijhxeztyxuzjfdodvmtietfgnbitdnrddqrumrbldjhfyoovirsbofefyuqmxspvieiixnidakvunarooyrkbgdaxeifmpzfxtjfirnujstzerzgbhjrudjffwmiqwwpwemdztvpwgeiezzdotoctrmtxkcduowfqzqjtewpxeatpojdmfcetjrsoqcgbsciminzbhifvpqdzbquswtxpqcooszaavzgylhlgglxitkunrkufmflustwmvflkybrtsohxuvrdjvydlprdvadroqzscyujaqukajrmvexxozabkujavvevadtdsroyhmtdqhikjtnywsurqhrrllhtqtlwtcsbmjfjbbksjjtnqnegmzqdhdsvtoqmhznynckhcggdnoxzttcdchclltivpiiwkcdsqajqjawkestlswtqrgyqhvnlsrmaqaifwurrjdguslsxmrtpshzhnqrfdygcqinknyhszsmcyltuvyhxvskdkqhfjqbwvriiovrzvkgnahtsjbvmuoqpadhnncykpxfclmthjkffsreaeijdduokkwukyhlccyzqhgoapuruiemchhjjgvvvuhwzdpiktznnmrryyobsqntleuuwnjoizjzkiswvqgskzqgnkxztlkdelirtdmtiqvnkipleesemwdsfofipfuzwelxhsnztqutfxnwezjpeuhxpkpykxnsdtmaohpiyuxkaglvofhjxcaacjktdwvcrrgxsobfovnfeieplatjegcaclexhwoodnoyenzrasclthgytiotqqaxfpqtpevgobguvoqyloxtheyjzvsphbojieqvlissplisufaflkjmavdvsviaxmwrqqxodgtunoaffvnlvrzmngoogfupieytpndjubmqihjlrpvlydnqzxiyuediwkzywsxcjchsesiijflopfbsmefrtvouwebissmqjiqlvngyoisrgiwwkbghspswzchfpejoclnerupfhgedegntyikfyesvcturpxbetkcawragecksnaqikgghzsbctcbxigkfdfjygyfvsqvavvlrovinjshcxnjrwssoupipgvxdtiswxcybayvcfrbrrwupsinjiufbwtbouduofoeqzjiqpaelnoczwzjbxebpycskvkzrxpjrqdeyzplhouknxqffaltukaqecgjkqpzgdhpplfciiztavtiaqvbtuqyooqpzwgeohktdfhtwkzeqybooioazfibdjqkprrhvlemyltyrspxrgjnzahwptjfmlwebuzuleawwpwvvacflnjjhjmkerxfyyljkywupczbobnalxlplxyepelzoqvpobbyfiokavakvpgkknslpbevcfbkqibpwarddaqrpqlfausnuaxywkdzleyrmpbyqaejjbxtqedaricqsrzbnpyquewjnwdhectkhgskelyapbazcwcqjqmecbjlrvwhiwkodzgwqmvflzpwlkolgmckzcxjpevajdxbzgqwudixydiqixsnnggsrxlmztlswtmvcxmitfiwckjevffjxrbbexrpirymbfztturfdissigcwtkoebxpgcgqzmqzelgmlrsitwpiasoiascqwievldmxmfcljlhjqowtpkdtccppyobplhnimphjtflhfccndxkhlyfgaapdkkyulhfggfcltkdouzmmxhuykcmuqgvnijvylipqgevuooaprkubvdhgkmhoxzfreduelzirtmgaqaplmidmhkvckvfgtsamuleacvsdrqxxwaakoptcvrblqhqcxhrwfwapqhgustvzdstblpvnbvboukxhinugbrkbyjpusatvihyuwuqmcegpwfjufjcmpcmbmdlyytcyrlyktcvimoitwqaipcfvnlwlfdhenmifubespnhanrteionrdampwkrkwtqefqyxlcwnecekjdgvesmhfwkumotuclojfdmezrwozngrpocxghdwqm\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

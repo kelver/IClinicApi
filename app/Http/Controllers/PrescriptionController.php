@@ -16,7 +16,7 @@ class PrescriptionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new prescription.
      *
      * @param  \App\Http\Requests\StorePrescriptionRequest  $request
      * @return PrescriptionsResource
