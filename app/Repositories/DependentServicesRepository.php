@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Illuminate\Http\Client\Response;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Http;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -20,7 +21,7 @@ class DependentServicesRepository
     public function getEntity(int $identify, string $resource, $bearer, $retry, $timeout): Response
     {
         $data = Http::withToken($bearer)
-                    ->retry($retry)
+//                    ->retry($retry)
                     ->timeout($timeout)
                     ->get(
                         "{$this->router}/{$resource}/{$identify}"
@@ -38,7 +39,7 @@ class DependentServicesRepository
                     ->withHeaders([
                         "Accept" => "application/json"
                     ])
-                    ->retry($retry)
+//                    ->retry($retry)
                     ->timeout($timeout)
                     ->post(
                         "{$this->router}/{$resource}",

@@ -35,7 +35,7 @@ class PrescriptionRepository
 
             return $this->persistPrescription($clinic, $physician, $patient, $request);
         } catch (\Exception $e) {
-            throw new HttpException(500, $e->getMessage());
+            throw new HttpException(409, $e->getMessage());
         }
     }
 
@@ -49,9 +49,11 @@ class PrescriptionRepository
             'patient'       => $patient['id'],
             'text'          => $request['text'],
         ]);
-        $metric = $this->isValidData($this->metric->sendMetric($clinic, $physician, $patient, $prescription));
-        if(!$metric){
+        $metric = $this->metric->sendMetric($clinic, $physician, $patient, $prescription);
+
+        if($metric->status() > 300){
             DB::rollBack();
+            throw new HttpException(409, $metric->getContent());
         }
 
         DB::commit();
@@ -60,7 +62,7 @@ class PrescriptionRepository
 
     public function isValidData($data)
     {
-        if(!is_array($data) && $data->getStatusCode() == 401){
+        if(!is_array($data) && ($data->getStatusCode() == 401 || $data->getStatusCode() == 409)){
             throw new HttpException(409, $data->getContent());
         }
         return $data;

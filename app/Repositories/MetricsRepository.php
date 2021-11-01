@@ -34,14 +34,13 @@ class MetricsRepository
                                 "prescription_id" => $prescription->id
                             ]);
 
-
             if($data->failed()){
                 return response()->json([
-                    'error' => [
-                        'message' => 'Physician not found.',
-                        'code' => '02'
+                    "error" => [
+                        "message" => "Metrics service not available.",
+                        "code" => "04"
                     ]
-                ], 409);
+                ], 401);
             }
 
             return $data->json();

@@ -2,7 +2,10 @@
 
 namespace Tests\Feature;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class PrescriptionTest extends TestCase
